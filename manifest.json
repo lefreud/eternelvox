@@ -1,0 +1,41 @@
+{
+  "name": "Eternelvox",
+  "author": "Frédéric Fortier-Chouinard",
+  "version": "0.1.0",
+  "description": "La vie est trop courte pour se reconnecter constamment à Omnivox.",
+  "permissions": [
+    "alarms",
+    "tabs",
+    "storage",
+    "https://*.omnivox.ca/*"
+  ],
+  "background": {
+    "scripts": [
+      "background/autoRefresh.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://climoilou.omnivox.ca/Login/Account/Login*"
+      ],
+      "js": [
+        "contentScripts/loginScript.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://climoilou.omnivox.ca/Login/Account/Login*erreur*"
+      ],
+      "js": [
+        "contentScripts/failedLoginScript.js"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_title": "EternelVox",
+    "default_popup": "popup/popup.html"
+  },
+  "manifest_version": 2
+}
