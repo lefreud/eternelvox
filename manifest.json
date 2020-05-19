@@ -1,7 +1,7 @@
 {
   "name": "Eternelvox",
   "author": "Frédéric Fortier-Chouinard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "La vie est trop courte pour se reconnecter constamment à Omnivox.",
   "permissions": [
     "alarms",
@@ -36,6 +36,12 @@
   "browser_action": {
     "default_title": "EternelVox",
     "default_popup": "popup/popup.html"
+  },
+  "icons": {
+    "16": "logo/logo16.png",
+    "32": "logo/logo32.png",
+    "48": "logo/logo48.png",
+    "128": "logo/logo128.png"
   },
   "manifest_version": 2
 }
