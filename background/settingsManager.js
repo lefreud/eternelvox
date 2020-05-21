@@ -1,5 +1,6 @@
 const DEFAULT_SETTINGS = {
-    automatedLoginEnabled: true
+    automatedLoginEnabled: true,
+    automatedRefreshEnabled: false
 }
 
 /**
