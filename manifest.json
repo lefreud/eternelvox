@@ -11,7 +11,8 @@
   ],
   "background": {
     "scripts": [
-      "background/autoRefresh.js"
+      "background/autoRefresh.js",
+      "background/settingsManager.js"
     ],
     "persistent": false
   },
