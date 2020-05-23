@@ -1,8 +1,3 @@
-const INPUT_DELAY = 80;
-
-const sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
-
-
 window.onload = async () => {
 
     /*
@@ -35,13 +30,9 @@ window.onload = async () => {
         if (result.hasOwnProperty('automatedLoginEnabled') && result.automatedLoginEnabled === true) {
             if (result.hasOwnProperty('loginCredentials')) {
                 const {userType, username, password} = result.loginCredentials;
-                await sleep(INPUT_DELAY);
                 userTypeButtons[userType].click()
-                await sleep(INPUT_DELAY);
                 loginFields[userType].usernameInput().value = username;
-                await sleep(INPUT_DELAY);
                 loginFields[userType].passwordInput().value = password;
-                await sleep(INPUT_DELAY);
                 submitBtn.click();
             } else {
                 form.onsubmit = (event) => {
