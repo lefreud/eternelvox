@@ -7,14 +7,8 @@ const DEFAULT_SETTINGS = {
  * Verifies settings that are not set in storage and initializes them to their default value.
  */
 const setNewSettingsToDefaults = () => {
-    let newSettings = {};
     chrome.storage.local.get(Object.keys(DEFAULT_SETTINGS), (storage) => {
-        Object.keys(DEFAULT_SETTINGS).forEach((setting) => {
-            if (!storage.hasOwnProperty(setting)) {
-                newSettings[setting] = DEFAULT_SETTINGS[setting];
-            }
-        });
-        chrome.storage.local.set(newSettings);
+        chrome.storage.local.set({...DEFAULT_SETTINGS, ...storage});
     });
 }
 
