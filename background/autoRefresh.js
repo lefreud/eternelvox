@@ -15,13 +15,7 @@ chrome.alarms.onAlarm.addListener(alarm => {
                 url: ["https://*.omnivox.ca/*"]
             }, (tabs) => {
                 tabs.forEach((tab) => {
-                    let blacklistedUrl = false;
-                    for (let i = 0; i < BLACKLISTED_URL_FORMATS.length; i++) {
-                        if (tab.url.match(BLACKLISTED_URL_FORMATS[i])) {
-                            blacklistedUrl = true;
-                            break;
-                        }
-                    }
+                    const blacklistedUrl = BLACKLISTED_URL_FORMATS.some(regex => regex.test(tab.url));
                     if (!blacklistedUrl) {
                         chrome.tabs.executeScript(tab.id, {
                             code: "location.reload();"
